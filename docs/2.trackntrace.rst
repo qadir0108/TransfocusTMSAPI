@@ -133,7 +133,7 @@ Example response is given below::
       ]
     }
 
-Scan Events (POD)
+Scan Events
 ---------------------------------------
 These are the types of Proof of Delivery (POD) documents that TMS API provides and are shared for integration. POD documents can be fetched using given Job Number. Proof of Delivery endpoint is given below::
 
