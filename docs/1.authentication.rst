@@ -1,25 +1,23 @@
-===============
+
+.. image:: https://transfocus.com.au/wp-content/uploads/TransfocusFooter.png
+  :width: 400
+  :alt: Transfocus TMS API
+
 Authentication
-===============
-
-Contents:
-
-.. toctree::
-   :maxdepth: 1
+=================
 
 Base URL
 ----------------
-Transfocus TMS API is REST based API with multiple secure end points. All resources reside under base URL. One of the base URL given below can be used to access TMS API:: 
+Transfocus TMS API is REST based API with multiple secure end points. All resources reside under base URL. Base URL of TMS API is:: 
 
     https://api.tmspanel.com.au/
-    https://tms-api-dev.azurewebsites.net/
 
 
 Authentication Endpoint
 ------------------------
 TMS API is secured uing OAuth tokens. Tokens are JSON Web Token (JWT). JWT token can be obtained by sending POST request to token URL::
 
-    POST https://tms-api-dev.azurewebsites.net/oauth2/token
+    POST https://api.tmspanel.com.au/oauth2/token
 
 Example Request
 ----------------
@@ -27,7 +25,7 @@ Transfocus TMS API - example authentication request is given below::
 
     curl -POST -H "Content-type: application/json" -d 'username:$username
     password:$password
-    grant_type:password' 'https://tms-api-dev.azurewebsites.net/oauth2/token'
+    grant_type:password' 'https://api.tmspanel.com.au/oauth2/token'
   
 Example Response
 ----------------

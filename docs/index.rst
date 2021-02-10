@@ -10,8 +10,6 @@
 Welcome to Transfocus TMS API documentation!
 ==================================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
    :glob:
