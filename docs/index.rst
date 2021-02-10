@@ -3,7 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Read the Docs Template's documentation!
+.. image:: https://transfocus.com.au/wp-content/uploads/TransfocusFooter.png
+  :width: 400
+  :alt: Transfocus TMS API
+
+Welcome to Transfocus TMS API documentation!
 ==================================================
 
 Contents:

@@ -1,0 +1,75 @@
+===============
+Authentication
+===============
+
+Contents:
+
+.. toctree::
+   :maxdepth: 1
+
+Base URL
+----------------
+Transfocus TMS API is REST based API with multiple secure end points. All resources reside under base URL. One of the base URL given below can be used to access TMS API:: 
+
+    https://api.tmspanel.com.au/
+    https://tms-api-dev.azurewebsites.net/
+
+
+Authentication Endpoint
+------------------------
+TMS API is secured uing OAuth tokens. Tokens are JSON Web Token (JWT). JWT token can be obtained by sending POST request to token URL::
+
+    POST https://tms-api-dev.azurewebsites.net/oauth2/token
+
+Example Request
+----------------
+Transfocus TMS API - example authentication request is given below::
+
+    curl -POST -H "Content-type: application/json" -d 'username:$username
+    password:$password
+    grant_type:password' 'https://tms-api-dev.azurewebsites.net/oauth2/token'
+  
+Example Response
+----------------
+Transfocus TMS API - example authentication response is given below::
+
+    {
+        "access_token": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiRGVtbyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3N1cm5hbWUiOiJDb21wYW55IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiaW5mb0BkZW1vY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImRlbW8iLCJ1c2VySWQiOiIwMGI2MmQwYi0xMjYwLTQyNzItOTEwNS05NTA2MmEyZTM0NTEiLCJjb21wYW55SWQiOiI3Yzk1N2VkYi02NjQ1LTQ4ZWMtODQ5Yi01ODE2MWJkYTY4ZWUiLCJuYmYiOjE2MTI5NDI2NjgsImV4cCI6MTYxMjk4NTg2OCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMTYvIiwiYXVkIjoidHJhbnNmb2N1cy5wYW5lbCJ9.edtL-TztKjNPpvaUQ13wRIOIpAg0ojWKSs8KjWWCtrc",
+        "token_type": "bearer",
+        "expires_in": 43199
+    }
+
+This access_token will be used in further API calls to access secure endpoints.
+
+Example Errors
+----------------
+TMS API can send back following standard HTTP errors response:
+
+.. list-table:: **Error Codes and Description**
+   :widths: 25 75
+   :header-rows: 1
+
+   * - Error Code
+     - Description
+   * - 200 OK
+     - Request is successful.
+   * - 400 Bad Request
+     - Request parameters are incorrect.
+   * - 401 Unauthorized
+     - Authentication failed.
+   * - 402 Request Failed
+     - Request is failing.
+   * - 403 Forbidden
+     - You don’t have permissions to access that URL.
+   * - 404 Not Found 
+     - The requested resource doesn't exist on server.
+   * - 500 Server Error
+     - There is server error in API.
+
+References
+----------------
+
+* JSON Web Tokens can be verified online using JWT tool::
+
+    https://jwt.io/#debugger-io
+

@@ -1,0 +1,79 @@
+.. Read the Docs Template documentation master file, created by
+   sphinx-quickstart on Tue Aug 26 14:19:49 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. image:: https://transfocus.com.au/wp-content/uploads/TransfocusFooter.png
+  :width: 400
+  :alt: Transfocus TMS API
+
+Track and Trace
+=================
+
+Track and Trace data consists of Consignment Status, Proof of Delivery (PODs) and Scan Events. Track and Trace data API is GET and each of track and trace data can be fetched using different API endpoints.
+
+Consignment Status
+---------------------------------------
+Consignment Status API sends back Track and Trace status of a given Job Number
+
+Consignment Status Endpoint
+---------------------------------------
+Consignment Status endpoint is given below::
+
+    POST https://tms-api-dev.azurewebsites.net/api/public/v1/tnt/status
+
+Consignment Status - Example Request
+---------------------------------------
+Example request is given below::
+
+    curl -POST -H "Content-type: application/json" -H "Authorization: Bearer $AccessToken" -d '{
+    "JobNumber" : "1395"
+    }' 'https://tms-api-dev.azurewebsites.net/api/public/v1/tnt/status'
+  
+Consignment Status - Example Response
+---------------------------------------
+Example response is given below::
+
+    {
+    "Success": true,
+    "Error": null,
+    "Data": [
+        {
+            "JobNumber": "1395",
+            "ConsignmentNumber": "1395-1",
+            "LegType": "Delivery",
+            "JobStatus": "Started",
+            "JobStatusTimestamp": "01/11/2017 10:41"
+        },
+        {
+            "JobNumber": "1395",
+            "ConsignmentNumber": "1395-1",
+            "LegType": "Delivery",
+            "JobStatus": "ArrivedSender",
+            "JobStatusTimestamp": "01/11/2017 12:40"
+        },
+        {
+            "JobNumber": "1395",
+            "ConsignmentNumber": "1395-1",
+            "LegType": "Delivery",
+            "JobStatus": "DepartedSender",
+            "JobStatusTimestamp": "01/11/2017 10:41"
+        },
+        {
+            "JobNumber": "1395",
+            "ConsignmentNumber": "1395-1",
+            "LegType": "Delivery",
+            "JobStatus": "ArrivedReceiver",
+            "JobStatusTimestamp": "01/11/2017 11:41"
+        },
+        {
+            "JobNumber": "1395",
+            "ConsignmentNumber": "1395-1",
+            "LegType": "Delivery",
+            "JobStatus": "Finished",
+            "JobStatusTimestamp": "01/11/2017 11:42"
+        }
+      ]
+    }
+
+AccessToken from authentication step is passed as header in the request.
