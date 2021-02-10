@@ -1,0 +1,120 @@
+.. Read the Docs Template documentation master file, created by
+   sphinx-quickstart on Tue Aug 26 14:19:49 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. image:: https://transfocus.com.au/wp-content/uploads/TransfocusFooter.png
+  :width: 400
+  :alt: Transfocus TMS API
+
+Jobs Data Import
+======================
+
+Jobs Data consists of complete details of the job. It kind of CSV data import but data is to be provided in JSON data format.
+
+Jobs Data
+---------------------------------------
+Import jobs endpoint is given below::
+
+    POST https://api.tmspanel.com.au/api/public/v1/import/jobs
+
+Import Jobs - Example Request
+---------------------------------------
+Example request is given below::
+
+    curl -POST https://api.tmspanel.com.au/api/public/v1/import/jobs
+    -H "Content-type: application/json"
+    -H "Authorization: Bearer $AccessToken" 
+    -d '{
+    "UserIdentityName": "admin",
+    "ImportMode": 1,
+    "ImportType": 2,
+    "ImportMatch": 2,
+    "ImportRejectType" : 1,
+    "IsAutoCreateMissingData" : true,
+    "Jobs" : [
+        {
+        "CustomerName": "Dummy customer",
+        "Service": "Standard",
+        "Reference1": "V3R100001",
+        "Reference2": "R200001",
+        "Reference3": "R300001",
+        "Reference4": "R400001",
+        "ReadyFromDate": "04-10-2020  09:45:00 PM",
+        "RequiredDeliveryDate": "05-10-2020  03:00:00 PM",
+        "SenderName": "EDISender1",
+        "SenderAddress1": "36 TEMPLAR ROAD",
+        "SenderAddress2": "Add 2 -1",
+        "SenderSuburb": "ERSKINE PARK",
+        "SenderPostcode": "2759",
+        "SenderState": "NSW",
+        "SenderPhone": "0410 515 436",
+        "SenderNote": "Sender Note 1",
+        "ReceiverName": "The Balcony",
+        "ReceiverAddress1": "7/3 Lawson St",
+        "ReceiverAddress2": "",
+        "ReceiverSuburb": "Byron Bay",
+        "ReceiverPostcode": "2481",
+        "ReceiverState": "NSW",
+        "ReceiverPhone": "0410 555 555",
+        "ReceiverNote": "Receiver Note 1",
+        "Instructions": "no charge as per sunny's agreement with anthea   coolway will drop at australian bay lobester bal...",
+        "Product": "Pallet",
+        "ProductDescription": "Pallet Description 1",
+        "ProductReference": "220127080V3",
+        "ProductQuantity": 3,
+        "ProductSpace": 2,
+        "ProductWeight": 160,
+        "ProductLength": 10,
+        "ProductWidth": 10,
+        "ProductHeight": 120,
+        "ProductShippingUnit": "Roll"
+        },
+        {
+        "CustomerName": "Dummy customer",
+        "Service": "Standard",
+        "Reference1": "V3R100001",
+        "Reference2": "R200001",
+        "Reference3": "R300001",
+        "Reference4": "R400001",
+        "ReadyFromDate": "04-10-2020  09:45:00 PM",
+        "RequiredDeliveryDate": "05-10-2020  03:00:00 PM",
+        "SenderName": "EDISender1",
+        "SenderAddress1": "36 TEMPLAR ROAD",
+        "SenderAddress2": "Add 2 -1",
+        "SenderSuburb": "ERSKINE PARK",
+        "SenderPostcode": "2759",
+        "SenderState": "NSW",
+        "SenderPhone": "0410 515 436",
+        "SenderNote": "Sender Note 1",
+        "ReceiverName": "The Balcony",
+        "ReceiverAddress1": "7/3 Lawson St",
+        "ReceiverAddress2": "",
+        "ReceiverSuburb": "Byron Bay",
+        "ReceiverPostcode": "2481",
+        "ReceiverState": "NSW",
+        "ReceiverPhone": "0410 555 555",
+        "ReceiverNote": "Receiver Note 1",
+        "Instructions": "no charge as per sunny's agreement with anthea   coolway will drop at australian bay lobester bal...",
+        "Product": "PAL",
+        "ProductDescription": "Pallet Description 2",
+        "ProductReference": "467435737V3",
+        "ProductQuantity": 4,
+        "ProductSpace": 2,
+        "ProductWeight": 120,
+        "ProductLength": 120,
+        "ProductWidth": 120,
+        "ProductHeight": 121,
+        "ProductShippingUnit": "Item"
+        }
+      ]
+    }'
+  
+Import Jobs - Example Response
+---------------------------------------
+Example response is given below::
+
+    {
+    "ImportedJobsCount": 1,
+    "ImportedJobProductsCount": 2,
+    }
