@@ -23,9 +23,12 @@ Consignment Status - Example Request
 ---------------------------------------
 Example request is given below::
 
-    curl -POST -H "Content-type: application/json" -H "Authorization: Bearer $AccessToken" -d '{
+    curl -POST https://api.tmspanel.com.au/api/public/v1/tnt/status
+    -H "Content-type: application/json" 
+    -H "Authorization: Bearer $AccessToken" 
+    -d '{
     "JobNumber" : "1395"
-    }' 'https://api.tmspanel.com.au/api/public/v1/tnt/status'
+    }' 
   
 Consignment Status - Example Response
 ---------------------------------------
@@ -92,9 +95,12 @@ Proof of Delivery - Example Request
 ---------------------------------------
 Example request is given below::
 
-    curl -POST -H "Content-type: application/json" -H "Authorization: Bearer $AccessToken" -d '{
-    "JobNumber" : "1395"
-    }' 'https://api.tmspanel.com.au/api/public/v1/tnt/pods'
+    curl -POST https://api.tmspanel.com.au/api/public/v1/tnt/pods
+    -H "Content-type: application/json" 
+    -H "Authorization: Bearer $AccessToken" 
+    -d '{
+    "JobNumber" : "10510"
+    }' 
   
 Proof of Delivery - Example Response
 ---------------------------------------
@@ -191,9 +197,12 @@ Scan Events - Example Request
 ---------------------------------------
 Example request is given below::
 
-    curl -POST -H "Content-type: application/json" -H "Authorization: Bearer $AccessToken" -d '{
+    curl -POST https://api.tmspanel.com.au/api/public/v1/tnt/scans
+    -H "Content-type: application/json" 
+    -H "Authorization: Bearer $AccessToken" 
+    -d '{
     "JobNumber" : "TRNS2198"
-    }' 'https://api.tmspanel.com.au/api/public/v1/tnt/scans'
+    }'
   
 Scan Events - Example Response
 ---------------------------------------

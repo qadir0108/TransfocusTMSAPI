@@ -23,9 +23,9 @@ Example Request
 ----------------
 Transfocus TMS API - example authentication request is given below::
 
-    curl -POST -H "Content-type: application/json" -d 'username:$username
-    password:$password
-    grant_type:password' 'https://api.tmspanel.com.au/oauth2/token'
+    curl -POST https://api.tmspanel.com.au/oauth2/token
+    -H "Content-type: application/json"
+    -d 'username=$username&password=$password&grant_type=password' 
   
 Example Response
 ----------------

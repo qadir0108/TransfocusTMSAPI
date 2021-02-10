@@ -1,7 +1,7 @@
 Authors
 -------
 * Kamran Qadir (qadir0108@gmail.com)
-* Dusko Bajic
 * Oleg Kuzmyn 
+* Dusko Bajic
 * Boris Todorovic
 * Jason Moss

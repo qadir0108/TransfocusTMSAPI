@@ -1,0 +1,101 @@
+.. Read the Docs Template documentation master file, created by
+   sphinx-quickstart on Tue Aug 26 14:19:49 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. image:: https://transfocus.com.au/wp-content/uploads/TransfocusFooter.png
+  :width: 400
+  :alt: Transfocus TMS API
+
+Customer Data Import
+======================
+
+Data can be imported into TMS using Data Import API. Import data can be customers data, jobs data, fleets and zones.
+
+Customers and Customer Contacts
+---------------------------------------
+Customers data is the core data of TMS that can be imported using TMS API. Import customers endpoint is given below::
+
+    POST https://api.tmspanel.com.au/api/public/v1/import/customers
+
+Import Customers - Example Request
+---------------------------------------
+Example request is given below::
+
+    curl -POST https://api.tmspanel.com.au/api/public/v1/import/customers
+    -H "Content-type: application/json"
+    -H "Authorization: Bearer $AccessToken" 
+    -d '{
+    "ImportWithContacts": true,
+    "ImportType": 2,
+    "UserIdentityName": "admin",
+    "Customers" : [
+    {
+        "Name": "Transfocus",
+        "Code": "DEMO",
+        "AccountName": "Transfocus Pvt Ltd",
+        "AccountSystem": "Transfocus",
+        "ABN": "123",
+        "AccountCode": "123",
+        "InvoiceGrouping": "consolidate jobs",
+        "InvoiceDeliveryMethod": "email",
+        "InvoiceFrequency": "anytime",
+        "PaymentTerms": "advance",
+        "PaymentTermsEndPeriod": "true",
+        "InvoiceAddress1": "51-53 Ordish Road",
+        "InvoiceAddress2": null,
+        "Suburb": "DANDENONG SOUTH",
+        "State": "VIC",
+        "Postcode": "3175",
+        "Notes": "Its very good location",
+        "BPAY": "123",
+        "Active": "true",
+        "ContactSaluation1": "Mr.",
+        "ContactPosition1": "SSE",
+        "ContactFirstName1": "Kamran",
+        "ContactLastName1": "Qadir",
+        "ContactPhone1": "0321633",
+        "ContactMobile1": "0321633",
+        "ContactEmail1": "qadir0108@hotmail.com",
+        "ContactReceivesEmail1": "true",
+        "ContactNote1": "Very good person",
+        "CreateUser1": null,
+        "ContactSaluation2": null,
+        "ContactPosition2": null,
+        "ContactFirstName2": null,
+        "ContactLastName2": null,
+        "ContactPhone2": null,
+        "ContactMobile2": null,
+        "ContactEmail2": null,
+        "ContactReceivesEmail2": null,
+        "ContactNote2": null,
+        "CreateUser2": null,
+        "ContactSaluation3": null,
+        "ContactPosition3": null,
+        "ContactFirstName3": null,
+        "ContactLastName3": null,
+        "ContactPhone3": null,
+        "ContactMobile3": null,
+        "ContactEmail3": null,
+        "ContactReceivesEmail3": null,
+        "ContactNote3": null,
+        "CreateUser3": null
+        }
+      ]
+    }'
+  
+Import Customers - Example Response
+---------------------------------------
+Example response is given below::
+
+    {
+    "ImportedCustomersCount": 2,
+    "Message": "",
+    "RejectedSuburbs": [
+        {
+            "Suburb" : "DANDENONG SOUTH",
+            "Postcode" : "3175",
+            "ErrorMessage": "Suburb with name: DANDENONG SOUTH, Postcode: 3175 not found. Customer: Transfocus import rejected"
+        }
+      ]
+    }
